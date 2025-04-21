@@ -1,0 +1,31 @@
+# Use official Python 3.9 image as base
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    PYTHONPATH=/app
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Install Poetry
+RUN pip install --no-cache-dir poetry
+
+# Copy only dependency files first to leverage Docker caching
+COPY pyproject.toml poetry.lock /app/
+
+# Ensure dependencies are installed correctly
+RUN poetry install --only main --no-interaction --no-ansi --no-root || poetry install --only main --no-interaction --no-ansi --no-root
+
+# Copy the rest of the project
+COPY . /app/
+
+# Expose port (change if necessary)
+EXPOSE 8080
+
+# Command to run the application
+CMD ["python", "src/astra-annotate/create_table_tasks.py"]

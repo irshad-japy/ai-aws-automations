@@ -1,0 +1,6 @@
+id,name,email,status,year,month
+1,Alice,alice@example.com,ACTIVE,2024,01
+2,Bob,bob@example.com,INACTIVE,2024,01
+3,Charlie,charlie@example.com,ACTIVE,2024,02
+4,David,david@example.com,PENDING,2024,02
+5,Eve,eve@example.com,ACTIVE,2024,03

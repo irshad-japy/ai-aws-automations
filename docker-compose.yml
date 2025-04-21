@@ -1,0 +1,22 @@
+services:
+  glue-pyspark:
+    image: glue-poetry-image
+    container_name: glue_pyspark_poetry
+
+    volumes:
+      - "C:/Users/erirs/.aws:/home/glue_user/.aws"
+      - "D:/tge/2025/ird-projects/my_pyautomation/aws:/home/glue_user/workspace"
+
+    working_dir: /home/glue_user/workspace
+
+    environment:
+      - AWS_PROFILE=default
+      - DISABLE_SSL=true
+
+    ports:
+      - "5678:5678"
+
+    # ✅ FIXED HERE (use list form)
+    command: ["tail", "-f", "/dev/null"]
+
+    tty: true
