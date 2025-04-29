@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "my_glue_projects"
+name = "my_aws_projects"
 version = "0.1.0"
 description = "Data Engineering Projects"
 authors = ["Irshad"]
@@ -20,6 +20,8 @@ debugpy = ">=1.8.0,<1.9.0"
 schedule = "^1.2.2"
 polars = "^1.26.0"
 tenacity = "^9.1.2"
+pyspark = "3.3.1"
+awsglue3-local = "1.0.0"
 
 [build-system]
 requires = ["poetry-core"]

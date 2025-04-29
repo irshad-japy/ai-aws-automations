@@ -1,5 +1,5 @@
 """
-pythom -m s3.s3_upload_download_efficient
+python -m s3.s3_upload_download_efficient
 """
 
 # s3_transfer_module_final.py
@@ -130,8 +130,8 @@ if __name__ == "__main__":
         "operation": "upload",  # "upload" or "download"
         "upload_local_folder": UPLOAD_FOLDER,
         "download_local_folder": DOWNLOAD_FOLDER,
-        "bucket": "your-s3-bucket-name",
-        "s3_prefix": "backup-folder/",  # S3 folder path
+        "bucket": "tge-nihau-bucket",
+        "s3_prefix": "irshad/",  # S3 folder path
         "max_workers": 10
     }
 
