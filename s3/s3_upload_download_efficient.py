@@ -114,6 +114,7 @@ def download_folder(bucket_name, s3_prefix, local_folder, max_workers=10):
             future.result()
 
 if __name__ == "__main__":
+    import pdb; pdb.set_trace()
     # ✨ Define project root
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -127,7 +128,7 @@ if __name__ == "__main__":
 
     # 📦 Config dict
     config = {
-        "operation": "upload",  # "upload" or "download"
+        "operation": "download",  # "upload" or "download"
         "upload_local_folder": UPLOAD_FOLDER,
         "download_local_folder": DOWNLOAD_FOLDER,
         "bucket": "tge-nihau-bucket",

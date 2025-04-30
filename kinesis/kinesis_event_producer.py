@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from kinesis.kinesis_xml_data import input_records
 
 # 🔧 Configuration
-STREAM_NAME  = "k-mytoll.syd.dem.stg.tdf.event"
+STREAM_NAME  = "k-mytoll.syd.dem.stg.tdf.consignment"
 REGION_NAME  = "ap-southeast-2"
 THREADS      = 10           # Number of threads
 RECORD_COUNT = 10           # Used only if no input_records
