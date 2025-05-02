@@ -1,5 +1,5 @@
 """
-python glue_job_params.py --JOB_NAME myteamge-dem-stg-event-collector-tdf
+python3 -m aws.aws_glue.get_glue_job_args --JOB_NAME myteamge-dem-stg-event-collector-tgx
 """
 
 import sys
@@ -30,13 +30,8 @@ job_args = get_glue_job_arguments(job_name)
 
 # For convenience, merge with JOB_NAME to maintain Glue job setup
 job_args['JOB_NAME'] = job_name
-print(f'job_args before sorting: {job_args}')
-
-sorted_job_args = dict(sorted(job_args.items()))
-
-print(f'job_args after sorting: {sorted_job_args}')
-
-# Initialize Spark/Glue
+print(f'job_args: {job_args}')
+# # Initialize Spark/Glue
 # sc = SparkContext()
 # glueContext = GlueContext(sc)
 # spark = glueContext.spark_session
@@ -44,4 +39,17 @@ print(f'job_args after sorting: {sorted_job_args}')
 # job = Job(glueContext)
 # job.init(job_name, job_args)
 
+# # ✅ Use parameters now
+# input_path = job_args.get('input_path')
+# output_path = job_args.get('output_path')
 
+# print(f"Reading from: {input_path}")
+# print(f"Writing to: {output_path}")
+
+# # Sample read/write
+# df = spark.read.option("header", "true").csv(input_path)
+# df.show()
+
+# df.write.mode("overwrite").json(output_path)
+
+# job.commit()
