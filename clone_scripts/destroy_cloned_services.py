@@ -1,3 +1,7 @@
+"""
+python clone_scripts/destroy_cloned_services.py
+"""
+
 import boto3
 from botocore.exceptions import ClientError
 
