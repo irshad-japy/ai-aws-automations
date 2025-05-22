@@ -19,9 +19,12 @@ s3transfer = "0.10.1"
 debugpy = ">=1.8.0,<1.9.0"
 schedule = "^1.2.2"
 polars = "^1.26.0"
-tenacity = "^9.1.2"
+tenacity = "8.2.2"
 pyspark = "3.3.2"
 awsglue3-local = "1.0.0"
+pyspark-ai = "^0.1.21"
+openai = "^1.81.0"
+langchain= "0.1.13"
 
 [build-system]
 requires = ["poetry-core"]
