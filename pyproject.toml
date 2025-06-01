@@ -25,6 +25,9 @@ awsglue3-local = "1.0.0"
 pyspark-ai = "^0.1.21"
 openai = "^1.81.0"
 langchain= "0.1.13"
+graphframes = "^0.6"
+networkx = "3.1"
+matplotlib = "^3.10.3"
 
 [build-system]
 requires = ["poetry-core"]

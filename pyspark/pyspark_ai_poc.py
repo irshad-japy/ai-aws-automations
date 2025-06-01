@@ -1,4 +1,6 @@
 """
+set PYSPARK_PYTHON=python
+set PYSPARK_DRIVER_PYTHON=python
 python pyspark/pyspark_ai_poc.py
 or
 python -m pyspark.pyspark_ai_poc

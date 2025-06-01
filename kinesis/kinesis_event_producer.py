@@ -8,7 +8,7 @@ import string
 from datetime import datetime
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from kinesis.kinesis_xml_data import input_records
+from kinesis.kinesis_xml_data import ec_input_records
 
 # 🔧 Configuration
 # STREAM_NAME  = "k-mytoll.syd.dem.stg.tdf.consignment"
@@ -70,12 +70,12 @@ def send_record(xml_data: str, partition_key: str, idx: int):
 
 
 def send_to_kinesis_parallel():
-    if input_records:
-        total = len(input_records)
-        print(f"🚀 Sending {total} records from `input_records` using {THREADS} threads...")
+    if ec_input_records:
+        total = len(ec_input_records)
+        print(f"🚀 Sending {total} records from `ec_input_records` using {THREADS} threads...")
         with ThreadPoolExecutor(max_workers=THREADS) as executor:
             futures = []
-            for i, rec in enumerate(input_records, start=1):
+            for i, rec in enumerate(ec_input_records, start=1):
                 xml   = rec["input_record"]
                 # Try to parse the root 'id' attribute for partition key
                 try:

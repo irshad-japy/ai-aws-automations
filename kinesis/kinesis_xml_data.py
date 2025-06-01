@@ -1,6 +1,6 @@
-# 📁 kinesis_xml_data.py
+# below is the sample data for consignment collector tdf(tgx)
 
-input_records = [
+cc_input_records = [
         {
         "input_record": """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
             <connoteMsg id="TGEX123456_TDF">
@@ -47,4 +47,50 @@ input_records = [
     "input_record": """<?xml version="1.0" encoding="UTF-8" standalone="yes"?><connoteMsg id="2470399974_TDF"><connote action="UN"><consignmentNumber>2470399974</consignmentNumber><actionDate>2025-05-19T12:16:35+10:00</actionDate><splInstructions>Special Instruction - Automation</splInstructions><shipDate>2025-05-19T00:00:00+10:00</shipDate><senderAccount>614060</senderAccount><senderName>Aarohi Agency</senderName><senderAddress><addressLine1>Lane A</addressLine1><addressLine2>Monforte Viennoiserie</addressLine2><suburb>PARLIAMENT HOUSE</suburb><state>SA</state><country>AU</country><postCode>5000</postCode></senderAddress><senderMobile>61-412345678</senderMobile><senderPhone>61-412345678</senderPhone><receiverName>GEETIKA</receiverName><receiverAddress><addressLine1>Address Line 1</addressLine1><addressLine2>Address Line 2</addressLine2><suburb>MELBOURNE WHARF</suburb><state>VIC</state><country>AU</country><postCode>3000</postCode></receiverAddress><receiverMobile>61-412345678</receiverMobile><receiverPhone>61-412345678</receiverPhone><involvedParties><partyRole>billTo</partyRole><partyAccount>614060</partyAccount><partyAddress><addressLine1>Lane A</addressLine1><addressLine2>Monforte Viennoiserie</addressLine2><suburb>PARLIAMENT HOUSE</suburb><state>SA</state><country>AU</country><postCode>5000</postCode></partyAddress></involvedParties><totalPallets>0</totalPallets><totalItems>1</totalItems><totalCubic UOM="m3">0.001</totalCubic><totalWeight UOM="Kg">50</totalWeight><isFood>false</isFood><serviceType>Express</serviceType><serviceCode>E</serviceCode><mode>ROAD</mode><busunit>TNQX</busunit><containsDangerousGoods>false</containsDangerousGoods><pickupManifestId>MYT1112000</pickupManifestId><notifications><milestones><milestone><name>PCKDUP</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>DELVERD</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>OUTFDL</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>SHPCRE</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>COLLCTD</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>PRTDEL</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>EXCEPTION</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>INTRNST</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone><milestone><name>AWTCOL</name><subscriberEmail><EMail>ats_normaluser@mailinator.com</EMail><EMail>ats_normaluser@mailinator.com</EMail></subscriberEmail></milestone></milestones></notifications><additionalAttributes><attribName>atl</attribName><attribValue>false</attribValue></additionalAttributes><additionalAttributes><attribName>tesFlg</attribName><attribValue>false</attribValue></additionalAttributes><additionalAttributes><attribName>tesAmt</attribName><attribValue>0.0</attribValue></additionalAttributes><additionalAttributes><attribName>isGlencoreShipment</attribName><attribValue>false</attribValue></additionalAttributes><additionalAttributes><attribName>purchaseOrder</attribName><attribValue>12345</attribValue></additionalAttributes></connote><srcSystem>TW</srcSystem><origin>MYTOLL</origin></connoteMsg>"""
     }
     
+]
+
+# below is the event collector tdf(tgx) data
+
+ec_input_records = [
+    # New data added below
+    {
+        "input_record": """<?xml version="1.0" encoding = "UTF-8" ?>
+<eventMsg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" consignmentNumber = "BCBL466193" consignmentId = "BCBL466193_PRIO">
+    <srcSystem>PRIO</srcSystem>
+    <event action = "UN">
+        <type>item</type>
+        <itemId>00693529785144661945</itemId>
+        <eventCode>65</eventCode>
+        <eventDescription>Transfer Out to C100</eventDescription>
+        <itemCount>1</itemCount>
+        <eventLocation>
+            <addressLine1>PERTH DOMESTIC AIRPORT</addressLine1>
+            <suburb>PERTH</suburb>
+            <state>WA</state>
+            <postCode>6104</postCode>
+        </eventLocation>
+        <businessUnit>PRIO</businessUnit>
+        <eventDateTime>2025-01-21T19:59:11Z</eventDateTime>
+        <eventTimezone>+08:00</eventTimezone>
+        <alternateDeliveryPoint>
+            <address>
+                <addressLine1>Shop 5/760 Berrigan</addressLine1>
+                <suburb>South Lake</suburb>
+                <state>WA</state>
+                <postCode>6164</postCode>
+                <latitude>-32.111020</latitude>
+                <longitude>115.839277</longitude>
+            </address>
+            <name>Freechoice South Lakes</name>
+            <openingHours>Mon-Sun: 07:00-20:00</openingHours>
+            <newsAgentCodeTP>C100</newsAgentCodeTP>
+            <newsAgentCodeTF>C100</newsAgentCodeTF>
+            <accepts>Standard</accepts>
+        </alternateDeliveryPoint>
+        <containerId/>
+        <routeId>PER__FS5</routeId>
+        <scanType>Physical</scanType>
+    </event>
+</eventMsg>"""
+    },
 ]
