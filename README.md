@@ -1,3 +1,4 @@
+# This project is for ongoing AWS/AI Research and Automations
 # With docker compose
 docker-compose down
 docker-compose up -d
@@ -9,11 +10,11 @@ cd aws
 docker build -t glue_pyspark_poetry_image .
 
 ✅ Step 2: Run the Container with Your Project Mounted
-D:\tge\2025\ird-projects\my_pyautomation
+<your_project_path>
 # Run below command if use powershell
 docker run -it --rm `
     -v C:\Users\erirs\.aws:/home/glue_user/.aws `
-    -v D:\tge\2025\ird-projects\my_pyautomation\aws:/home/glue_user/workspace `
+    -v <<your_project_path>>\aws:/home/glue_user/workspace `
     -e AWS_PROFILE=default `
     -e DISABLE_SSL=true `
     --network=host `
@@ -59,13 +60,13 @@ aws ecr create-repository --repository-name my-glue-custom --region ap-southeast
 # 2. Authenticate Docker to ECR
 aws ecr get-login-password \
   | docker login --username AWS \
-  --password-stdin 927721130786.dkr.ecr.ap-southeast-2.amazonaws.com
+  --password-stdin 123456789.dkr.ecr.ap-southeast-2.amazonaws.com
 
 # 3. Tag your local image
-docker tag my-glue-custom:latest 927721130786.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest
+docker tag my-glue-custom:latest 123456789.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest
 
 # 4. Push to ECR
-docker push 927721130786.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest
+docker push 123456789.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest
 
 # once pushed reuse the image from ecr
 docker run -it --rm \
@@ -78,7 +79,7 @@ docker run -it --rm \
   -p 4040:4040 \
   -p 18080:18080 \
   --name glue_pyspark \
-  927721130786.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest \
+  123456789.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest \
   pyspark
 
 # Below is the full command that we run in wsl amazon linux 2
@@ -92,7 +93,7 @@ docker run -it --rm \
   -p 4040:4040 \
   -p 18080:18080 \
   --name glue_pyspark \
-  927721130786.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest \
+  123456789.dkr.ecr.ap-southeast-2.amazonaws.com/my-glue-custom:latest \
   pyspark
 
 NOTE:If you face issue like "Unable to write file" run below command in wsl terminal not inside container
