@@ -1,0 +1,101 @@
+# This AWS SAM template has been generated from your function's configuration. If
+# your function has one or more triggers, note that the AWS resources associated
+# with these triggers aren't fully specified in this template and include
+# placeholder values. Open this template in AWS Infrastructure Composer or your
+# favorite IDE and modify it to specify a serverless application with other AWS
+# resources.
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application Model template describing your function.
+Resources:
+  tgepdfexpressstatementstaging:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./src
+      Description: Lambda function for PDF Express statement
+      MemorySize: 10240
+      Timeout: 900
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.12
+      Architectures:
+        - x86_64
+      EphemeralStorage:
+        Size: 512
+      Environment:
+        Variables:
+          ENVIRONMENT: staging
+          S3_BUCKET_NAME: tge-corp-owcc-staging
+      EventInvokeConfig:
+        MaximumEventAgeInSeconds: 21600
+        MaximumRetryAttempts: 2
+      PackageType: Zip
+      Policies:
+        - Statement:
+            - Sid: VisualEditor0
+              Effect: Allow
+              Action:
+                - secretsmanager:GetResourcePolicy
+                - secretsmanager:UntagResource
+                - secretsmanager:GetSecretValue
+                - secretsmanager:DescribeSecret
+                - secretsmanager:ListSecretVersionIds
+                - secretsmanager:TagResource
+              Resource:
+                - >-
+                  arn:aws:secretsmanager:us-east-1:123456789:secret:tge-pdf-express-nz-staging-bMN5Fr
+                - >-
+                  arn:aws:secretsmanager:us-east-1:123456789:secret:PDF-Express-UAT-fRnrvl
+            - Sid: VisualEditor1
+              Effect: Allow
+              Action:
+                - secretsmanager:GetRandomPassword
+                - secretsmanager:ListSecrets
+                - secretsmanager:BatchGetSecretValue
+              Resource: '*'
+            - Effect: Allow
+              Action:
+                - sts:AssumeRole
+              Resource: >-
+                arn:aws:iam::503095242877:role/SES-PDFExpressNoReply-LambdaCrossAccount-Role
+            - Sid: Statement1
+              Effect: Allow
+              Action:
+                - s3:*
+                - sqs:*
+                - cloudwatch:*
+                - ec2:CreateNetworkInterface
+                - ec2:DeleteNetworkInterface
+                - ec2:*
+                - logs:*
+                - ses:*
+              Resource:
+                - '*'
+            - Sid: Statement2
+              Effect: Allow
+              Action:
+                - ses:*
+              Resource:
+                - >-
+                  arn:aws:ses:us-east-1:503095242877:identity/pdfexpress.noreply@teamglobalexp.com
+            - Effect: Allow
+              Action:
+                - lambda:InvokeFunction
+              Resource: >-
+                arn:aws:lambda:us-east-1:123456789:function:tge-pdf-express*
+      RecursiveLoop: Terminate
+      SnapStart:
+        ApplyOn: None
+      Tags:
+        ApplicationName: PDF Express
+        Env: staging
+        lambda:createdBy: SAM
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0b0e9d555d7833a43
+        SubnetIds:
+          - subnet-0fee0e7a037bf53d6
+          - subnet-02eb0bd7d03eb6026
+          - subnet-0d2f4527c6dce42c0
+        Ipv6AllowedForDualStack: false
+      RuntimeManagementConfig:
+        UpdateRuntimeOn: Auto
