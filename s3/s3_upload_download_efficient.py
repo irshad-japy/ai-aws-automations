@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     # 📦 Config dict
     config = {
-        "operation": "download",  # "upload" or "download"
+        "operation": "upload",  # "upload" or "download"
         "upload_local_folder": UPLOAD_FOLDER,
         "download_local_folder": DOWNLOAD_FOLDER,
         "bucket": "tge-nihau-bucket",
