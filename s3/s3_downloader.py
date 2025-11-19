@@ -10,9 +10,9 @@ from boto3.s3.transfer import TransferConfig
 from datetime import datetime, timezone
 
 # ---------------- CONFIG ----------------
-DOWNLOAD_DIR = r"C:\Users\IrshadAl\projects\tge-projects\pod-finance\pdf_express"
+DOWNLOAD_DIR = r"C:\Users\IrshadAl\projects\tge-projects\pod-finance"
 BUCKET = "tge-nihau-bucket"
-S3_PREFIX = "irshad/code/"
+S3_PREFIX = "irshad/code/pod-finance"
 INTERVAL_SECONDS = 300  # 5 min
 
 EXCLUDE_PATTERNS = [".git", "__pycache__", ".venv", ".idea", ".vscode"]
@@ -50,8 +50,16 @@ def download_if_newer(obj):
     if key.endswith("/"):
         return
 
-    relative = key.replace(S3_PREFIX, "")
-    local_path = os.path.join(DOWNLOAD_DIR, relative)
+    # Ensure the key actually starts with the prefix
+    if not key.startswith(S3_PREFIX):
+        return
+
+    # Remove the prefix and any leading slash
+    relative = key[len(S3_PREFIX):].lstrip("/")
+
+    # Convert S3-style paths (with "/") to OS-native path
+    local_path = os.path.join(DOWNLOAD_DIR, *relative.split("/"))
+    print(f"local_path: {local_path}")
 
     if excluded(local_path):
         return
@@ -77,7 +85,6 @@ def download_if_newer(obj):
         )
     except ClientError as e:
         print(f"❌ Download failed: {e}")
-
 
 # --------------- MAIN LOOP ----------------
 def main():

@@ -1,5 +1,5 @@
 """
-python -m s3.uploader_changes_file_s3
+python -m s3.s3_uploader
 """
 
 import os
