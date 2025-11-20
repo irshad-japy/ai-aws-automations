@@ -1,5 +1,5 @@
 """
-python -m s3.s3_uploader
+python -m s3.s3_gitchange_uploader
 """
 
 import os
