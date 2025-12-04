@@ -1,0 +1,8 @@
+{
+  "app": "poetry run python app.py",
+  "context": {
+    "instanceId": "i-09c40c2e332da8c67",
+    "projectTag": "RustDesk-Auto",
+    "ownerTag": "Irshad"
+  }
+}

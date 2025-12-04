@@ -1,0 +1,174 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "RustDeskSchedulerStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "RustDeskSchedulerStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "RustDeskSchedulerStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://747230718574/ap-south-1",
+      "properties": {
+        "templateFile": "RustDeskSchedulerStack.template.json",
+        "terminationProtection": false,
+        "tags": {
+          "Owner": "Irshad",
+          "Project": "RustDesk-Auto"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::747230718574:role/cdk-hnb659fds-deploy-role-747230718574-ap-south-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::747230718574:role/cdk-hnb659fds-cfn-exec-role-747230718574-ap-south-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-747230718574-ap-south-1/8d684e019fef46a4717660f2474d1dbb6ec9fd2990324f2e013dd36b26b788af.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "RustDeskSchedulerStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::747230718574:role/cdk-hnb659fds-lookup-role-747230718574-ap-south-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "RustDeskSchedulerStack.assets"
+      ],
+      "metadata": {
+        "/RustDeskSchedulerStack": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "Owner",
+                "Value": "Irshad"
+              },
+              {
+                "Key": "Project",
+                "Value": "RustDesk-Auto"
+              }
+            ]
+          }
+        ],
+        "/RustDeskSchedulerStack/Ec2StartStopRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Ec2StartStopRole3FF1C17E"
+          }
+        ],
+        "/RustDeskSchedulerStack/Ec2StartStopRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Ec2StartStopRoleDefaultPolicy24D81B0D"
+          }
+        ],
+        "/RustDeskSchedulerStack/Ec2StartStopFn/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Ec2StartStopFn0AB2EDDD"
+          }
+        ],
+        "/RustDeskSchedulerStack/Ec2StartStopFn/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Ec2StartStopFnLogRetention0837C14A"
+          }
+        ],
+        "/RustDeskSchedulerStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/RustDeskSchedulerStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/RustDeskSchedulerStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/RustDeskSchedulerStack/Start09IST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Start09IST5A8573D7"
+          }
+        ],
+        "/RustDeskSchedulerStack/Start09IST/AllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E50081": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Start09ISTAllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E5008114D73F05"
+          }
+        ],
+        "/RustDeskSchedulerStack/Stop21IST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Stop21IST9773B441"
+          }
+        ],
+        "/RustDeskSchedulerStack/Stop21IST/AllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E50081": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Stop21ISTAllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E500815AAF9BBF"
+          }
+        ],
+        "/RustDeskSchedulerStack/Stop1330ISTExceptSaturday/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Stop1330ISTExceptSaturday75F25EB6"
+          }
+        ],
+        "/RustDeskSchedulerStack/Stop1330ISTExceptSaturday/AllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E50081": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Stop1330ISTExceptSaturdayAllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E50081334CDE40"
+          }
+        ],
+        "/RustDeskSchedulerStack/Start1430ISTExceptSaturday/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Start1430ISTExceptSaturday1C1E87CA"
+          }
+        ],
+        "/RustDeskSchedulerStack/Start1430ISTExceptSaturday/AllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E50081": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Start1430ISTExceptSaturdayAllowEventRuleRustDeskSchedulerStackEc2StartStopFnB4E500819393B317"
+          }
+        ],
+        "/RustDeskSchedulerStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/RustDeskSchedulerStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/RustDeskSchedulerStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "RustDeskSchedulerStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
